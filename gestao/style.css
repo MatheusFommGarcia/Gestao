@@ -932,64 +932,56 @@ section {
   }
 }
 
-/* ===== MODAL ZOOM ===== */
+/* ===== MODAL CORRIGIDO (CENTRALIZADO NO CELULAR) ===== */
 .modal {
-  display: none;
   position: fixed;
-  z-index: 2000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+  inset: 0;
   background: rgba(0,0,0,0.9);
+  z-index: 9999;
+  display: none;
 
-  /* Centraliza verticalmente e horizontalmente */
+  /* Centraliza tudo */
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0; /* remove espaço que empurrava a imagem */
 }
 
-
+/* A imagem NUNCA fica colada no topo agora */
 .modal-content {
-  margin: 0;
+  max-width: 90%;
+  max-height: 80%;  /* deixa espaço para respirar */
+  border-radius: 12px;
+  margin: 0 !important; 
   display: block;
-  max-width: 85vw;
-  max-height: 85vh;
-  border-radius: 10px;
-  animation: zoom 0.3s ease;
 }
 
-@keyframes zoom {
-  from { transform: scale(0.7); opacity: 0; }
-  to   { transform: scale(1); opacity: 1; }
-}
-
+/* Botão X */
 .close-modal {
   position: absolute;
-  top: 25px;
-  right: 35px;
-  color: white;
+  top: 20px;
+  right: 20px;
   font-size: 40px;
-  font-weight: bold;
+  color: white;
   cursor: pointer;
+  z-index: 10000;
 }
 
+/* SETAS */
 .prev, .next {
-  cursor: pointer;
   position: absolute;
-  top: 50%;
-  padding: 16px;
-  color: white;
+  top: 50%;              /* CENTRALIZA NA ALTURA CORRETA */
+  transform: translateY(-50%);
   font-size: 45px;
   font-weight: bold;
-  user-select: none;
-  transition: 0.3s;
+  color: white;
+  cursor: pointer;
+  z-index: 10000;
+  padding: 15px;
 }
 
-.prev { left: 5%; }
-.next { right: 5%; }
+.prev { left: 20px; }
+.next { right: 20px; }
+
 
 .prev:hover, .next:hover {
   transform: scale(1.2);
