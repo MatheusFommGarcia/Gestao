@@ -933,29 +933,39 @@ section {
 }
 
 /* ===== MODAL CORRIGIDO (CENTRALIZADO NO CELULAR) ===== */
+/* ===== MODAL CORRETO, CENTRALIZADO E SEM BUG ===== */
 .modal {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.9);
   z-index: 9999;
-  display: none;
 
-  /* Centraliza tudo */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  /* Correto! Modal começa oculto */
+  display: none !important;
+
+  /* Quando ativo, o JS adiciona .show */
 }
 
-/* A imagem NUNCA fica colada no topo agora */
+.modal.show {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+
+/* A imagem centraliza perfeitamente */
 .modal-content {
-  max-width: 90%;
-  max-height: 80%;  /* deixa espaço para respirar */
+  max-width: 90vw;
+  max-height: 80vh;
+  width: auto;
+  height: auto;
+
   border-radius: 12px;
-  margin: 0 !important; 
-  display: block;
+  margin: 0 !important;
 }
 
-/* Botão X */
+
+/* Botão fechar */
 .close-modal {
   position: absolute;
   top: 20px;
@@ -966,26 +976,27 @@ section {
   z-index: 10000;
 }
 
-/* SETAS */
+
+/* Setas de navegação */
 .prev, .next {
   position: absolute;
-  top: 50%;              /* CENTRALIZA NA ALTURA CORRETA */
+  top: 50%;
   transform: translateY(-50%);
   font-size: 45px;
   font-weight: bold;
-  color: white;
   cursor: pointer;
-  z-index: 10000;
+  color: white;
   padding: 15px;
+  z-index: 10000;
 }
 
-.prev { left: 20px; }
-.next { right: 20px; }
-
+.prev { left: 15px; }
+.next { right: 15px; }
 
 .prev:hover, .next:hover {
-  transform: scale(1.2);
+  transform: translateY(-50%) scale(1.2);
 }
+
 
 
 /* ===== CORRIGIR BOXES DA GESTÃO NO CELULAR ===== */

@@ -86,13 +86,13 @@ galleryImages.forEach((img, index) => {
 });
 
 function openModal() {
-  modal.style.display = "block";
+  modal.classList.add("show");
   modalImg.src = imageList[currentIndex];
 }
 
 // Fechar modal
 closeModal.addEventListener("click", () => {
-  modal.style.display = "none";
+  modal.classList.remove("show");
 });
 
 // Navegação
